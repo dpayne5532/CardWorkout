@@ -10,18 +10,17 @@ import UIKit
 class CardSelectionVC: UIViewController {
     
     @IBOutlet var cardImageView: UIImageView!
-    @IBOutlet var buttons: [UIButton]!
+    
     var cards: [UIImage] = Card.allValues
     var timer: Timer!
+    var timerRunning: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         startTimer()
-        for button in buttons {
-            button.layer.cornerRadius = 8
-        }
+    
     
     }
     
@@ -42,11 +41,25 @@ class CardSelectionVC: UIViewController {
     
     
     @IBAction func stopButtonTapped(_ sender: UIButton) {
+        if timerRunning == true {
+            timerRunning.toggle()
         timer.invalidate()
+        } else {
+            return
+        }
+        
+        
     }
     
     @IBAction func restartButtonTapped(_ sender: UIButton) {
-       startTimer()
+        if timerRunning == false {
+            timerRunning.toggle()
+            startTimer()
+        } else  {
+            return
+        }
+        
+       
         
     }
     
