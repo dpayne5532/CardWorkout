@@ -1,4 +1,4 @@
-# CardWorkout
+# CardWorkout (iOS)
 
 ![alt text](https://danpayne.info/cardworkout.png)
 
